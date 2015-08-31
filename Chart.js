@@ -2055,7 +2055,13 @@
 
 					//@author m.shutkov 
 					// Added for changing bar color for тegative and positive values
-					if(dataPoint>0){dataset.fillColor = options.positivBarColors}else{dataset.fillColor = options.negativBarColors}					
+					if (dataPoint>0) {
+						dataset.fillColor = options.positivBarColors
+					} 
+					else {
+						dataset.fillColor = options.negativBarColors
+					}
+										
 					datasetObject.bars.push(new this.BarClass({
 						value : dataPoint,
 						label : data.labels[index],
