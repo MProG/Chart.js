@@ -2052,14 +2052,18 @@
 
 				helpers.each(dataset.data,function(dataPoint,index){
 					//Add a new point for each piece of data, passing any required data to draw.
+
+					//@author m.shutkov 
+					// Added for changing bar color for тegative and positive values
+					if(dataPoint>0){dataset.fillColor = options.positivBarColors}else{dataset.fillColor = options.negativBarColors}					
 					datasetObject.bars.push(new this.BarClass({
 						value : dataPoint,
 						label : data.labels[index],
 						datasetLabel: dataset.label,
-						strokeColor : dataset.strokeColor,
+						strokeColor : dataset.fillColor,
 						fillColor : dataset.fillColor,
 						highlightFill : dataset.highlightFill || dataset.fillColor,
-						highlightStroke : dataset.highlightStroke || dataset.strokeColor
+						highlightStroke : dataset.highlightStroke || dataset.fillColor
 					}));
 				},this);
 
